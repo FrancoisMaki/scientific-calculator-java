@@ -1,7 +1,7 @@
-package com.francoismaki.calc.core.unary;
+package com.francoismaki.calc.core.operations.unary;
 
-import com.francoismaki.calc.core.Constant;
-import com.francoismaki.calc.core.Expression;
+import com.francoismaki.calc.core.ast.Constant;
+import com.francoismaki.calc.core.ast.Expression;
 import com.francoismaki.calc.core.operations.unary.SquareRoot;
 
 import org.junit.jupiter.api.Test;

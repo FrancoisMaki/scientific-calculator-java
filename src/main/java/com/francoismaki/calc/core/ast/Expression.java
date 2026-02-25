@@ -1,4 +1,4 @@
-package com.francoismaki.calc.core;
+package com.francoismaki.calc.core.ast;
 
 public interface Expression {
     double evaluate();

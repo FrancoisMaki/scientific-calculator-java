@@ -1,6 +1,6 @@
 package com.francoismaki.calc.core.operations.unary;
 
-import com.francoismaki.calc.core.Expression;
+import com.francoismaki.calc.core.ast.Expression;
 
 public class SquareRoot implements Expression{
     private final Expression value;

@@ -1,7 +1,7 @@
-package com.francoismaki.calc.core.binary;
+package com.francoismaki.calc.core.operations.binary;
 
-import com.francoismaki.calc.core.Constant;
-import com.francoismaki.calc.core.Expression;
+import com.francoismaki.calc.core.ast.Constant;
+import com.francoismaki.calc.core.ast.Expression;
 import com.francoismaki.calc.core.operations.binary.Substraction;
 
 import org.junit.jupiter.api.Test;

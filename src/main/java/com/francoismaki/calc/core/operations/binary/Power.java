@@ -1,6 +1,6 @@
 package com.francoismaki.calc.core.operations.binary;
 
-import com.francoismaki.calc.core.Expression;
+import com.francoismaki.calc.core.ast.Expression;
 
 public class Power implements Expression {
     private final Expression left;

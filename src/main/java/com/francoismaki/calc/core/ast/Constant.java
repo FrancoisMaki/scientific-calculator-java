@@ -1,4 +1,4 @@
-package com.francoismaki.calc.core;
+package com.francoismaki.calc.core.ast;
 
 public class Constant implements Expression {
     private final double value;
