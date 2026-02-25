@@ -1,17 +1,24 @@
 package com.francoismaki.calc;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import com.francoismaki.calc.core.Constant;
+import com.francoismaki.calc.core.Expression;
+import com.francoismaki.calc.core.operations.binary.Addition;
+import com.francoismaki.calc.core.operations.binary.Multiplication;
+
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+        Expression five = new Constant(5);
+        Expression ten = new Constant(10);
+        Expression three = new Constant(3);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+        Expression add = new Addition(five, ten);
+
+        Expression completeOperation = new Multiplication(add, three);
+
+        double answer = completeOperation.evaluate();
+
+        System.out.println("--- Test de Calculadora Científica ---");
+        System.out.println("Expresión: (5 + 10) * 3");
+        System.out.println("Resultado: " + answer);
     }
 }
