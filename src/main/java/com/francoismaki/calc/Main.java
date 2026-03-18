@@ -4,21 +4,21 @@ import com.francoismaki.calc.core.ast.Constant;
 import com.francoismaki.calc.core.ast.Expression;
 import com.francoismaki.calc.core.operations.binary.Addition;
 import com.francoismaki.calc.core.operations.binary.Multiplication;
+import com.francoismaki.calc.core.parser.Token;
+import com.francoismaki.calc.core.parser.Tokenizer;
+
+import java.util.List;
 
 public class Main {
     static void main() {
-        Expression five = new Constant(5);
-        Expression ten = new Constant(10);
-        Expression three = new Constant(3);
+        String ecuacion = "35.5 + sin(90) * (2^4)";
+        System.out.println("Generando la respuesta " + ecuacion);
 
-        Expression add = new Addition(five, ten);
+        Tokenizer tokenizer = new Tokenizer(ecuacion);
+        List<Token> tokens = tokenizer.tokenize();
 
-        Expression completeOperation = new Multiplication(add, three);
-
-        double answer = completeOperation.evaluate();
-
-        System.out.println("--- Test de Calculadora Científica ---");
-        System.out.println("Expresión: (5 + 10) * 3");
-        System.out.println("Resultado: " + answer);
+        for (Token token : tokens){
+            System.out.println(token);
+        }
     }
 }
