@@ -11,22 +11,24 @@ import com.francoismaki.calc.core.parser.Tokenizer;
 import java.util.List;
 
 public class Main {
-    static void main() {
-        String ecuacion = "((3 * 1 + 5) * (4 + 2)) + 2";
-        //String ecuacion = "(3 * 1 + 5 * 4 + 2) + 2";
-        System.out.println("Ecuación Original: " + ecuacion);
-        //  ((3 * 1 + 5) * (4 + 2)) + 2   -->     3 1 * 5 + 4 2 + * 2 +
-        //  (3 * 1 + 5 * 4 + 2) + 2       -->     3 1 * 5 4 * + 2 + 2 +
+    static void main(String[] args) {
+        String ecuacion = "sin(0) + cos(0)";
 
         Tokenizer tokenizer = new Tokenizer(ecuacion);
         List<Token> tokens = tokenizer.tokenize();
 
         Parser parser = new Parser();
-        List<Token> rpnTokens = parser.parseToRPN(tokens);
+        List<Token> rpn = parser.parseToRPN(tokens);
 
-        System.out.println("Orden RPN:");
-        for (Token token : rpnTokens) {
-            System.out.print(token.getValue() + " ");
+        Expression expression = parser.buildAST(rpn);
+
+        double res = expression.evaluate();
+
+        System.out.println("Input " + ecuacion);
+        System.out.println("Resultado " + res);
+        System.out.println("RPN " );
+        for (Token t : rpn){
+            System.out.print(t.getValue() + " ");
         }
     }
 }

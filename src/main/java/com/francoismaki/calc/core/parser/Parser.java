@@ -34,11 +34,11 @@ public class Parser {
             switch (token.getType()){
                 case NUMBER:
                     outputQueue.add(token);
-                    break;
+                break;
 
                 case FUNCTION:
-                    outputQueue.add(token);
-                    break;
+                    operatorStack.push(token);
+                break;
 
                 case OPERATOR:
                     while (!operatorStack.isEmpty() &&
@@ -58,11 +58,11 @@ public class Parser {
                     }
 
                     operatorStack.push(token);
-                    break;
+                break;
 
                 case PAREN_LEFT:
                     operatorStack.push(token);
-                    break;
+                break;
 
                 case PAREN_RIGHT:
                     while (!operatorStack.isEmpty() && operatorStack.peek().getType() != TokenType.PAREN_LEFT){
@@ -74,6 +74,7 @@ public class Parser {
                     if (!operatorStack.isEmpty() && operatorStack.peek().getType() == TokenType.FUNCTION){
                         outputQueue.add(operatorStack.pop());
                     }
+                break;
             }
         }
 
@@ -88,10 +89,13 @@ public class Parser {
         return outputQueue;
     }
 
+    //  AST
+
     public Expression buildAST(List<Token> rpnTokens){
         Deque<Expression> stack = new ArrayDeque<>();
 
         for (Token token : rpnTokens){
+            System.out.println("Procesando: " + token.getValue() + " | Elementos en pila: " + stack.size());
             switch (token.getType()){
                 case NUMBER:
                     stack.push(new Constant(Double.parseDouble(token.getValue())));
@@ -116,7 +120,7 @@ public class Parser {
     private Expression createBinaryOperation(String op, Expression left, Expression right){
         return switch (op){
             case "+"    ->  new Addition(left, right);
-            case "-"    ->  new Substraction(left, right);
+            case "-"    ->  new Subtraction(left, right);
             case "*"    ->  new Multiplication(left, right);
             case "/"    ->  new Division(left, right);
             case "^"    ->  new Power(left, right);
@@ -131,7 +135,7 @@ public class Parser {
             case "tan"          ->  new Tan(operand);
             case "ln"           ->  new Ln(operand);
             case "log10"        ->  new Log10(operand);
-            case "squareRoot"   ->  new SquareRoot(operand);
+            case "sqrt"   ->  new SquareRoot(operand);
             default -> throw new IllegalArgumentException("Funcion desconocida " + func);
         };
     }
