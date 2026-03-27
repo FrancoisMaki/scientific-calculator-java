@@ -1,0 +1,6 @@
+POST http://localhost:7000/calculate
+Content-Type: application/json
+
+{
+  "equation": "sin(0) + (3 * 4 + 2)"
+}
