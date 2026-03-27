@@ -1,0 +1,31 @@
+/*
+ORANGE #FAA916
+WHITE #FBFFFE
+GREY #6D676E
+BLACK #1B1B1E
+RED WINE #96031A
+*/
+body{
+    color: #FBFFFE;
+    background-color: #1B1B1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#calculator-container{
+    padding: 25px;
+    width: 320px;
+}
+
+#keypad{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#keypad button{
+    flex-direction: column;
+    background-color: #FBFFFE;
+}

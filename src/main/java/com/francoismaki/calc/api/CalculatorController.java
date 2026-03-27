@@ -27,7 +27,9 @@ public class CalculatorController {
 
             context.json(Map.of("result", result));
         }catch (Exception e){
-            context.status(400).json(Map.of("error", e.getMessage()));
+            e.printStackTrace();
+            String errorMsg = e.getMessage() != null ? e.getMessage() : "Error interno del servidor";
+            context.status(400).json(Map.of("error", errorMsg));
         }
     }
 

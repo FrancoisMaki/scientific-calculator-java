@@ -17,6 +17,9 @@ public class Main {
     static void main(String[] args) {
         var app = Javalin.create(
                 config -> {
+                        //Evita bloqueo de puerto cerrado
+                        config.bundledPlugins.enableCors(cors -> cors.addRule(it -> it.anyHost()));
+                        //Mostrar front
                         config.staticFiles.add("/public", Location.CLASSPATH);
                     }
                 )

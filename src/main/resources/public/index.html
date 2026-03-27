@@ -1,13 +1,66 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <title>Scientific Calculator Java</title>
 </head>
+
 <body>
-    <div id="app">
-        <h1>Scientific Calculator Java</h1>
+    <div id="calculator-container">
+
+        <div id="screen-container">
+            <div id="history-display"></div>
+            <div id="main-display">0</div>
+        </div>
+
+        <div id="advanced-tools">
+            <button onclick="insertTemplate('int(', ', x, 0, 1)')">Integral</button>
+            <button onclick="insertTemplate('der(', ', x)')">Derivada</button>
+            <button onclick="requestGraph()">Graficar f(x)</button>
+        </div>
+
+        <div id="keypad">
+            <button onclick="clearAll()">AC</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="append('(')">(</button>
+            <button onclick="append(')')">)</button>
+
+            <button onclick="append('sin(')">sin</button>
+            <button onclick="append('cos(')">cos</button>
+            <button onclick="append('tan(')">tan</button>
+            <button onclick="append(' ^ ')">^</button>
+
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append(' / ')">÷</button>
+
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append(' * ')">×</button>
+
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="append(' - ')">-</button>
+
+            <button onclick="append('0')">0</button>
+            <button onclick="append('.')">.</button>
+            <button onclick="append('x')">x</button>
+            <button onclick="calculate()" id="btn-equals">=</button>
+        </div>
+
+        <div id="graph-container" style="display: none;">
+            <canvas id="mathGraph"></canvas>
+        </div>
+
     </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
