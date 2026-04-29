@@ -8,24 +8,63 @@ RED WINE #96031A
 body{
     color: #FBFFFE;
     background-color: #1B1B1E;
+    border: 2px solid green;
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    margin: 0;
+    margin: 0 1rem 0 1rem;
 }
 
 #calculator-container{
-    padding: 25px;
-    width: 320px;
+    align-items: center;
+    justify-content: center;
+    /*align-content: center;*/
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 400px;
+    border: 2px solid blue;
+}
+
+#calculator-container button{
+    font-size: 1rem;
+}
+
+#advanced-calculator{
+    border: 1px solid white;
+}
+
+#advanced-calculator button {
+    background-color: #FBFFFE;
+    border-radius: 10px;
+}
+
+#advanced-calculator button:hover{
+    opacity: 80%;
 }
 
 #keypad{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    min-height: 300px;
+    min-width: 500px;
+    border: 1px solid pink;
 }
 
 #keypad button{
-    flex-direction: column;
     background-color: #FBFFFE;
+    border-radius: 10px;
+}
+
+#keypad button:hover{
+    opacity: 80%;
+}
+
+#history-display{
+    background-color: #505050;
+}
+#screen-container{
+    flex: 2;
+    border: 2px solid red;
 }

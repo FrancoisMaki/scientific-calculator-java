@@ -31,7 +31,7 @@ function updateScreen(){
 
 function insertTemplate(prefix, suffix){
     currentEquation = currentEquation === '0' ? '' : currentEquation;
-    currentEquation += prefix + " " + suffix;ç
+    currentEquation += prefix + " " + suffix;
     updateScreen();
 }
 
